@@ -1,4 +1,4 @@
-# Laravel Echo Server
+# Laravel Echo Server - Socket.IO@4
 
 NodeJs server for Laravel Echo broadcasting with Socket.io.
 

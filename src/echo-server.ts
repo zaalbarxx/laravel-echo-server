@@ -98,7 +98,7 @@ export class EchoServer {
     /**
      * Initialize the class
      */
-    init(io: any): Promise<any> {
+    init(io: any): Promise<void> {
         return new Promise((resolve, reject) => {
             this.channel = new Channel(io, this.options);
 
@@ -149,7 +149,7 @@ export class EchoServer {
     /**
      * Listen for incoming event from subscibers.
      */
-    listen(): Promise<any> {
+    listen(): Promise<void> {
         return new Promise((resolve, reject) => {
             let subscribePromises = this.subscribers.map(subscriber => {
                 return subscriber.subscribe((channel, message) => {
@@ -165,7 +165,9 @@ export class EchoServer {
      * Return a channel by its socket id.
      */
     find(socket_id: string): any {
-        return this.server.io.sockets.connected[socket_id];
+        const socket = this.server.io.sockets.sockets.get(socket_id);
+
+        return socket.connected ? socket: null;
     }
 
     /**

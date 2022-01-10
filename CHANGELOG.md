@@ -1,3 +1,9 @@
+# 1.6.4
+
+## Changed
+
+- updated socket.io to @4 and adjusted internal code
+
 # 1.6.3
 
 ## Fixed

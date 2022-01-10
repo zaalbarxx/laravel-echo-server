@@ -15,7 +15,7 @@ export class HttpSubscriber implements Subscriber {
      *
      * @return {void}
      */
-    subscribe(callback): Promise<any> {
+    subscribe(callback): Promise<void> {
         return new Promise((resolve, reject) => {
             // Broadcast a message to a channel
             this.express.post('/apps/:appId/events', (req, res) => {
@@ -41,7 +41,7 @@ export class HttpSubscriber implements Subscriber {
      *
      * @return {Promise}
      */
-    unsubscribe(): Promise<any> {
+    unsubscribe(): Promise<void> {
         return new Promise((resolve, reject) => {
             try {
                 this.express.post('/apps/:appId/events', (req, res) => {

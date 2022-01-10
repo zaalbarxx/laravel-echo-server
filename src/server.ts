@@ -5,6 +5,7 @@ var express = require('express');
 var url = require('url');
 var io = require('socket.io');
 import { Log } from './log';
+import { Server as SocketIoServer } from 'socket.io';
 
 export class Server {
     /**
@@ -19,7 +20,7 @@ export class Server {
      *
      * @type {object}
      */
-    public io: any;
+    public io: SocketIoServer;
 
     /**
      * Create a new server instance.
