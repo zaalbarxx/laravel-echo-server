@@ -43,6 +43,9 @@ export class RedisSubscriber implements Subscriber {
                     if (this.options.devMode) {
                         Log.info("Channel: " + channel);
                         Log.info("Event: " + message.event);
+                        if (this.options.logPayload) {
+                            Log.info("Payload: " + JSON.stringify(message.data));
+                        }
                     }
 
                     callback(channel.substring(this._keyPrefix.length), message);

@@ -167,7 +167,7 @@ export class EchoServer {
     find(socket_id: string): any {
         const socket = this.server.io.sockets.sockets.get(socket_id);
 
-        return socket.connected ? socket: null;
+        return socket?.connected ? socket: null;
     }
 
     /**
